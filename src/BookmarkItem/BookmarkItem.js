@@ -11,21 +11,21 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       'authorization': `bearer ${config.API_KEY}`
     }
   })
-    .then(res => {
-      if (!res.ok) {
-        return res.jason().then(error => {
-          throw error
-        })
-      }
-      return res.json()
-    })
-    .then(data => {
-      console.log({data})
-      cb(bookmarkId)
-    })
-    .catch(error => {
-      console.error(error)
-    })
+  .then(res => {
+    if (!res.ok) {
+      return res.json().then(error => {
+        throw error
+      })
+    }
+    return res.json()
+  })
+  .then(data => {
+    console.log({data})
+    cb(bookmarkId)
+  })
+  .catch(error => {
+    console.error(error)
+  })
 }
 
 export default function BookmarkItem(props) {
