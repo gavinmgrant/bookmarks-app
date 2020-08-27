@@ -18,7 +18,6 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       if (!res.ok) {
         return res.json().then(error => Promise.reject(error))
       }
-      return res.json()
     })
     .then(data => {
       cb(bookmarkId)
@@ -51,8 +50,11 @@ export default function BookmarkItem(props) {
             <Link to={`/edit/${props.id}`}>
               Edit
             </Link>
+            {' '}
             <button
-              onClick={() => deleteBookmarkRequest(props.id, context.deleteBookmark)}
+              onClick={() => 
+                deleteBookmarkRequest(props.id, context.deleteBookmark)
+              }
             >
               Delete
             </button>

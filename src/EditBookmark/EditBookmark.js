@@ -71,7 +71,8 @@ class EditBookmark extends Component {
     };
 
     handleChangeRating = e => {
-        this.setState({ rating: e.target.value })
+        let newRating = parseInt(e.target.value);
+        this.setState({ rating: newRating })
     };
 
     handleSubmit = e => {
